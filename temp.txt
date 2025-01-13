@@ -1,0 +1,46 @@
+npm i pinia @pinia/nuxt
+['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }]
+
+npm i pinia-plugin-persistedstate
+modules: ['pinia-plugin-persistedstate/nuxt']
+
+npx nuxi@latest module add tailwindcss
+npx tailwindcss init
+npm install -D prettier prettier-plugin-tailwindcss
+.prettierrc => {
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+
+npx nuxi@latest module add i18n
+
+npx nuxi@latest module add @vite-pwa/nuxt
+
+npx nuxi@latest module add seo
+
+npx nuxi@latest module add image
+
+npx nuxi module add eslint
+npm i -D eslint-config-prettier eslint-plugin-prettier(為了在Coding時就能報出eslint的語法錯誤所以需要這兩個)
+  eslint.config.mjs => 
+    // @ts-check
+import withNuxt from './.nuxt/eslint.config.mjs'
+import prettierRecommended from 'eslint-plugin-prettier/recommended'
+
+export default withNuxt(
+  // Your custom configs here
+  prettierRecommended,
+  {
+    files: [
+      '**/pages/**/*.{js,ts,vue}',
+      '**/layouts/**/*.{js,ts,vue}',
+      '**/app.{js,ts,vue}',
+      '**/error.{js,ts,vue}',
+      '**/.*.js'
+    ],
+    rules: {
+      'vue/multi-word-component-names': 'off'
+    }
+  }
+)
+
+

@@ -1,0 +1,20 @@
+{
+  "name": "wb-nuxt3-pack",
+  "version": "1.0.0",
+  "description": "A package to setup @nuxt/image、@nuxt/eslint、@nuxt/i18n、@nuxt/seo、@vite-pwa/nuxt、@nuxtjs/tailwindcss、Pinia、pinia-plugin-persistedstate、Prettier for Nuxt projects",
+  "type": "module",
+  "bin": {
+    "wb-nuxt3-pack": "./postinstall.js"
+  },
+  "keywords": [
+    "eslint",
+    "prettier",
+    "nuxt",
+    "installer"
+  ],
+  "author": "Wilbur",
+  "license": "ISC",
+  "dependencies": {
+    "execa": "^9.5.2"
+  }
+}
