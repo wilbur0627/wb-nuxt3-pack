@@ -3,12 +3,15 @@ import { installPinia } from "./modules_utils/pinia.js";
 import { installNuxtImage } from "./modules_utils/nuxt_image.js";
 import { installI18n } from "./modules_utils/i18n.js";
 import { installTailwindcss } from "./modules_utils/tailwindcss.js";
+import { installEslint } from "./modules_utils/eslint.js";
 import { initializeGlobalVariables } from "./global.js";
 import { validateNuxtProject } from "./utils/validateNuxtProject.js";
 import { setNuxtConfigPath } from "./utils/getNuxtConfigPath.js";
+import { addEslintAutoSave } from "./utils/addEslintAutoSave.js";
 
 (async () => {
   try {
+    addEslintAutoSave();
     // 先取得全域變數
     await initializeGlobalVariables();
 
@@ -17,6 +20,9 @@ import { setNuxtConfigPath } from "./utils/getNuxtConfigPath.js";
 
     // 取得nuxt.config.{js,ts}路徑
     await setNuxtConfigPath();
+
+    // 安裝 @nuxt/eslint 模組
+    await installEslint();
 
     // 安裝 pinia、@nuxt/pinia、pinia-plugin-persistedstate 模組
     // await installPinia();
@@ -29,14 +35,6 @@ import { setNuxtConfigPath } from "./utils/getNuxtConfigPath.js";
 
     // 安裝 Tailwind CSS 和 Prettier 模組
     await installTailwindcss();
-
-    // // 安裝 @nuxt/eslint 模組
-    // console.log('Adding @nuxt/eslint module...');
-    // await execa('npx', ['nuxi', ...module_add, 'eslint'], cwd_stdio);
-
-    // // 安裝 Prettier ESLint 相關套件
-    // console.log('Installing Prettier ESLint dependencies...');
-    // await execa('npm', ['install', '-D', 'eslint-config-prettier', 'eslint-plugin-prettier'], cwd_stdio);
 
     console.log("Setup complete!");
   } catch (error) {

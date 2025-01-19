@@ -43,4 +43,7 @@ export default withNuxt(
   }
 )
 
+重複的檔案內容需要過濾
+1. nuxt.config => 所有modules裡面安裝過的字串、安裝pinia時會將imports: { dirs: ['store'] }加入，應先檢查有無該屬性不然會重複加入
+2. 判斷.prettierrc.mjs和.eslint.config.mjs有無存在
 

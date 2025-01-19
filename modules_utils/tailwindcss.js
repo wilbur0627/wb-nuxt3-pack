@@ -1,8 +1,10 @@
 import { execa } from "execa";
 import { getCwdStdio, module_add } from "../global.js";
+import { createFileAndContent } from "../utils/createFileAndContent.js";
 
 export const installTailwindcss = async () => {
   console.log("Adding tailwindcss、prettier、prettier-plugin-tailwindcss module...");
+  createFileAndContent(".prettierrc.mjs", `export default { plugins: ["prettier-plugin-tailwindcss"] };`)
   await execa("npx", ["nuxi@latest", ...module_add, "tailwindcss"], getCwdStdio());
   await execa("npx", ["tailwindcss", "init"], getCwdStdio());
   await execa(
@@ -11,10 +13,3 @@ export const installTailwindcss = async () => {
     getCwdStdio()
   );
 };
-
-// npx nuxi@latest module add tailwindcss
-// npx tailwindcss init
-// npm install -D prettier prettier-plugin-tailwindcss
-// .prettierrc => {
-//   "plugins": ["prettier-plugin-tailwindcss"]
-// }
