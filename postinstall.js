@@ -25,13 +25,13 @@ import { addEslintAutoSave } from "./utils/addEslintAutoSave.js";
     await installEslint();
 
     // 安裝 pinia、@nuxt/pinia、pinia-plugin-persistedstate 模組
-    // await installPinia();
+    await installPinia();
 
     // 安裝 @nuxt/image 模組
-    // await installNuxtImage();
+    await installNuxtImage();
 
     // 安裝 i18n 模組
-    // await installI18n();
+    await installI18n();
 
     // 安裝 Tailwind CSS 和 Prettier 模組
     await installTailwindcss();

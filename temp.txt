@@ -45,5 +45,8 @@ export default withNuxt(
 
 重複的檔案內容需要過濾
 1. nuxt.config => 所有modules裡面安裝過的字串、安裝pinia時會將imports: { dirs: ['store'] }加入，應先檢查有無該屬性不然會重複加入
-2. 判斷.prettierrc.mjs和.eslint.config.mjs有無存在
+2. 判斷.prettierrc.mjs和eslint.config.mjs有無存在
+3. 如果package.json裡面已經有了套件名稱但無安裝(手動刪掉node_modules和package-lock.json但無刪掉package.json裡面的依賴)會噴錯後停止安裝。預期 => 繼續安裝? or 若無法，則提示手動刪除package.json裡面的依賴項目。
 
+
+eslint、image、pinia、tailwindcss、
