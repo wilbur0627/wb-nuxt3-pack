@@ -49,4 +49,4 @@ export default withNuxt(
 3. 如果package.json裡面已經有了套件名稱但無安裝(手動刪掉node_modules和package-lock.json但無刪掉package.json裡面的依賴)會噴錯後停止安裝。預期 => 繼續安裝? or 若無法，則提示手動刪除package.json裡面的依賴項目。
 
 
-eslint、image、pinia、tailwindcss、
+eslint、image、pinia、tailwindcss、i18n、

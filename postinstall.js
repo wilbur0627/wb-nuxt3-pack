@@ -4,6 +4,7 @@ import { installNuxtImage } from "./modules_utils/nuxt_image.js";
 import { installI18n } from "./modules_utils/i18n.js";
 import { installTailwindcss } from "./modules_utils/tailwindcss.js";
 import { installEslint } from "./modules_utils/eslint.js";
+import { installPWA } from "./modules_utils/pwa.js";
 import { initializeGlobalVariables } from "./global.js";
 import { validateNuxtProject } from "./utils/validateNuxtProject.js";
 import { setNuxtConfigPath } from "./utils/getNuxtConfigPath.js";
@@ -22,19 +23,22 @@ import { addEslintAutoSave } from "./utils/addEslintAutoSave.js";
     await setNuxtConfigPath();
 
     // 安裝 @nuxt/eslint 模組
-    await installEslint();
+    // await installEslint();
 
     // 安裝 pinia、@nuxt/pinia、pinia-plugin-persistedstate 模組
-    await installPinia();
+    // await installPinia();
 
     // 安裝 @nuxt/image 模組
-    await installNuxtImage();
+    // await installNuxtImage();
 
     // 安裝 i18n 模組
-    await installI18n();
+    // await installI18n();
 
     // 安裝 Tailwind CSS 和 Prettier 模組
-    await installTailwindcss();
+    // await installTailwindcss();
+
+    // 安裝 @vite-pwa/nuxt
+    await installPWA();
 
     console.log("Setup complete!");
   } catch (error) {
