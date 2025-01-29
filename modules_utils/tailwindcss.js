@@ -1,6 +1,7 @@
 import { execa } from "execa";
 import { getCwdStdio, module_add } from "../global.js";
 import { createFileAndContent } from "../utils/createFileAndContent.js";
+import { updateModulesConfigHandler } from "../utils/updateNuxtConfigModules.js";
 
 export const installTailwindcss = async () => {
   console.log("Adding tailwindcss、prettier、prettier-plugin-tailwindcss module...");
@@ -15,4 +16,5 @@ export const installTailwindcss = async () => {
     ["install", "-D", "prettier", "prettier-plugin-tailwindcss"],
     getCwdStdio()
   );
+  updateModulesConfigHandler("@nuxtjs/tailwindcss");
 };

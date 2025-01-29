@@ -12,6 +12,8 @@ import { addEslintAutoSave } from "./utils/addEslintAutoSave.js";
 
 (async () => {
   try {
+    console.log("QQDER");
+    
     addEslintAutoSave();
     // 先取得全域變數
     await initializeGlobalVariables();
