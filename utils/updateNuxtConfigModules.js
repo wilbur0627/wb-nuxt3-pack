@@ -7,6 +7,7 @@ import { getNuxtConfigPath } from "../utils/getNuxtConfigPath.js";
  * @param {boolean} returnRaw 是否保持原始格式插入
  * @returns {string} 更新後的文件内容
  */
+
 function updateModulesConfig(
   configContent,
   updateContent,
@@ -61,6 +62,11 @@ function updateModulesConfig(
 
 export function updateModulesConfigHandler(content, returnRaw = false) {
   const nuxtConfigPath = getNuxtConfigPath();
+  if (Array.isArray(content)) {
+    for (let i = 0; i < content.length; i++) {
+      if (fs.readFileSync(nuxtConfigPath, "utf-8").includes(content[i])) return
+    }
+  }
   fs.writeFileSync(
     nuxtConfigPath,
     updateModulesConfig(nuxtConfigPath, content, returnRaw)
