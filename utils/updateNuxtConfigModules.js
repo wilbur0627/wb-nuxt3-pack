@@ -62,11 +62,14 @@ function updateModulesConfig(
 
 export function updateModulesConfigHandler(content, returnRaw = false) {
   const nuxtConfigPath = getNuxtConfigPath();
+  const fileContent = fs.readFileSync(nuxtConfigPath, "utf-8");
+  
   if (Array.isArray(content)) {
-    for (let i = 0; i < content.length; i++) {
-      if (fs.readFileSync(nuxtConfigPath, "utf-8").includes(content[i])) return
-    }
+    if (content.some((item) => fileContent.includes(item))) return;
+  } else if (fileContent.includes(content)) {
+    return;
   }
+
   fs.writeFileSync(
     nuxtConfigPath,
     updateModulesConfig(nuxtConfigPath, content, returnRaw)
