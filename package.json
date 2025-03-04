@@ -1,6 +1,6 @@
 {
   "name": "wb-nuxt3-pack",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A package to setup @nuxt/image、@nuxt/eslint、@nuxt/i18n、@nuxt/seo、@vite-pwa/nuxt、@nuxtjs/tailwindcss、Pinia、pinia-plugin-persistedstate、Prettier for Nuxt projects",
   "type": "module",
   "bin": {
@@ -16,5 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "execa": "^9.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wilbur0627/wb-nuxt3-pack"
   }
 }
